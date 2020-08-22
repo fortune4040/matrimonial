@@ -19,6 +19,7 @@ relationship_choices = (
 
 )
 
+
 class User(AbstractUser):
     email = models.EmailField(verbose_name='email address',max_length=255,unique=True,blank=True,null=True)
     mobile_no = models.CharField(validators=[
