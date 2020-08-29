@@ -19,6 +19,25 @@ relationship_choices = (
 
 )
 
+status = (('Single','Single'),('Single','Single'))
+
+types = (('Fair','Fair'),('Black','Black'),('Brown','Brown'))
+
+bgroup = (('-A','-A'),('B','B'),('AB','AB'),('O','O'))
+
+tongue = (('Assamese','Assamese'),('Bengali','Bengali'),('Bodo','Bodo'),('Dogri','Dogri'),('English','English'),('Gujarati',
+                                                                                                                 'Gujarati'),
+          ('Hindi','Hindi'),('Kannada','Kannada'),('Kashmiri','Kashmiri'),('Konkani','Konkani'),('Maithili','Maithili'),
+          ('Malayalam','Malayalam'),('Marathi','Marathi'),('Meitei (Manipuri)','Meitei (Manipuri)'),('Nepali','Nepali'),
+          ('Odia','Odia'),('Punjabi','Punjabi'),('Sanskrit','Sanskrit'),('Santali','Santali'))
+
+income = (('100000','<100000'),('100000-300000','100000-300000'),('300000-600000','300000-600000'),
+          ('600000-1000000','600000-1000000'),('1000000-1500000','1000000-1500000'),
+          ('1500000-2000000','1500000-2000000'),('>2000000','>2000000'))
+
+religion_choice = (('Hinduism','Hinduism'),('Islam','Islam'),('Christianity','Christianity'),('Sikhism','Sikhism'),
+                    ('Buddhism','Buddhism'),('Jainism','Jainism'),('Zoroastrianism','Zoroastrianism'))
+
 
 class User(AbstractUser):
     email = models.EmailField(verbose_name='email address',max_length=255,unique=True,blank=True,null=True)
@@ -35,19 +54,46 @@ class User(AbstractUser):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
-    age = models.IntegerField(blank=True,null=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL,blank=True,null=True,on_delete=models.CASCADE)
+    age = models.PositiveSmallIntegerField(blank=True,null=True)
+
+    # Bride grooms details
+    navaras = models.CharField(max_length=50,blank=True,null=True)
+    maritial_status = models.CharField(max_length=50,choices=status,blank=True,null=True)
+    height = models.FloatField(blank=True,null=True)
+    weight = models.PositiveSmallIntegerField(blank=True,null=True)
+    body_type = models.CharField(max_length=20,blank=True,null=True,choices=types)
+    birthdate = models.DateTimeField(blank=True,null=True)
+    blood_group = models.CharField(max_length=10,blank=True,null=True,choices=bgroup)
+    mother_tongue = models.CharField(max_length=30,blank=True,null=True,choices=tongue)
+    annual_income = models.CharField(max_length=20,blank=True,null=True,choices=income)
+    religion = models.CharField(max_length=30,null=True,blank=True,choices=religion_choice)
+    caste = models.CharField(max_length=20,null=True,blank=True)
+    sub_caste = models.CharField(max_length=20,blank=True,null=True)
+    birthplace = models.CharField(max_length=50,blank=True,null=True)
+    occupation = models.CharField(max_length=200,blank=True,null=True)
+    education = models.CharField(max_length=100,blank=True,null=True)
+    education_detail = models.CharField(max_length=100,blank=True,null=True)
+
+    @property
+    def images(self):
+        return self.img.all()
 
     def __str__(self):
         return self.user.username
 
 
-@receiver(post_save,sender=settings.AUTH_USER_MODEL)
-def userprofile_receiver(sender, instance, created, *args, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
-    else:
-        instance.profile.save()
+class ProfileImage(models.Model):
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name="img")
+    image = models.CharField(max_length=10,blank=True,null=True)
+
+
+# @receiver(post_save,sender=settings.AUTH_USER_MODEL)
+# def userprofile_receiver(sender, instance, created, *args, **kwargs):
+#     if created:
+#         Profile.objects.create(user=instance)
+#     else:
+#         instance.profile.save()
 
 
 
