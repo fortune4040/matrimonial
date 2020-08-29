@@ -23,4 +23,12 @@ class Register(View):
         messages.error(request, form.errors)
         return redirect('info:register')
 
+class CreateProfile(View):
+    def get(self,request):
+        return render(request,'create_profile.html')
+
+    def post(self,request):
+        data = request.POST
+        print(data)
+        return render(request,'create_profile.html')
 

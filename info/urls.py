@@ -12,5 +12,6 @@ urlpatterns =[
     path('change_password/',auth_views.PasswordChangeView.as_view(template_name='password_change_form.html',success_url=reverse_lazy('info:password_change_done')),name='change_password'),
     path('change_password_done/',auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'),name='password_change_done'),
     path('welcome/',login_required(TemplateView.as_view(template_name='user_profile.html'),login_url='/'),name='welcome'),
+    path('create_profile',CreateProfile.as_view(),name='createprofile'),
 
 ]

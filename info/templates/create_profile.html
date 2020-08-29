@@ -1,0 +1,430 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<!-- registration form comes here -->
+<!-- MultiStep Form -->
+<!-- <div class="container"> -->
+<div class="container-fluid" id="grad1">
+    <div class="row justify-content-center mt-0">
+        <div class="col-11 col-sm-9 col-md-7 col-lg-6 p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 class="text-center"><strong>Create your profile</strong></h2>
+                <p class="text-center">Fill the correct information in below fields</p>
+                <div class="row" style="margin-right: 0px; margin-left: 0px;">
+                    <div class="col-md-12 mx-0">
+                        <div class="stepwizard">
+                            <div class="stepwizard-row setup-panel">
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+                                    <p><small>Personal Info</small></p>
+                                </div>
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                                    <p><small>Lifestyle Info</small></p>
+                                </div>
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                                    <p><small>Horoscope Info</small></p>
+                                </div>
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                                    <p><small>Family Info</small></p>
+                                </div>
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+                                    <p><small>Residential Info</small></p>
+                                </div>
+                                <div class="stepwizard-step col-xs-2"> 
+                                    <a href="#step-6" type="button" class="btn btn-default btn-circle" disabled="disabled">6</a>
+                                    <p><small>Acknowledgement</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form role="form" method="post" action="">
+                            {% csrf_token %}
+                            <div class="panel panel-primary setup-content" id="step-1">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Personal Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="navarasname">Navaras Name*:</label>
+                                        <input type="text" name="navarasname" class="form-control" placeholder="Navaras Name" autofocus required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="maritalStatus">Marital Status*:</label>
+                                        <select class="list-dt" name="maritalStatus" class="form-control">
+                                            <option value="single">Single</option>
+                                            <option value="divorced">Divorced</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gender">Gender*:</label>
+                                        <div>
+                                            <input type="radio" style="width:5%;"  name="gender" value="male" checked>                                        
+                                            <label for="radio">Male</label>
+                                            <input type="radio" style="width:5%;" name="gender" value="female">
+                                            <label for="radio">Female</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Age*:</label>
+                                        <input type="number" name="age" class="form-control" placeholder="In Years" min="0" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="height">Height*:</label>
+                                        <input type="number" name="height" class="form-control" placeholder="In ft." min="0" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weight">Weight*:</label>
+                                        <input type="number" name="weight" class="form-control" placeholder="In Kg" min="0" required/>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="gender">Body Type*:</label>
+                                        <div>
+                                            <input type="radio" style="width:5%;" name="bodytype" value="fare" checked>                                        
+                                            <label for="radio">Fare</label>
+                                            <input type="radio" style="width:5%;" name="bodytype" value="brown">
+                                            <label for="radio">Brown</label>
+                                            <input type="radio" style="width:5%;" name="bodytype" value="black">
+                                            <label for="radio">Black</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dob">Date of Birth*:</label>
+                                        <input type="date" name="dob" class="form-control" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bloodgp">Blood Group*:</label>
+                                        <select class="list-dt" class="form-control" name="bloodgp">
+                                            <option value="A+">A +ve</option>
+                                            <option value="A-">A -ve</option>
+                                            <option value="B+">B +ve</option>
+                                            <option value="B-">B -ve</option>
+                                            <option value="AB+">AB +ve</option>
+                                            <option value="AB-">AB -ve</option>
+                                            <option value="O+">O +ve</option>
+                                            <option value="O-">O -ve</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mothertongue">Mother Tongue*:</label>
+                                        <select class="list-dt" class="form-control" name="Mother Tongue" >
+                                            <option value="Bengali">Bengali</option>
+                                            <option value="English">English</option>
+                                            <option value="Gujarati">Gujarati</option>
+                                            <option value="Hindi">Hindi</option>
+                                            <option value="Kannada">Kannada</option>
+                                            <option value="Konkani">Konkani</option>
+                                            <option value="Malayalam">Malayalam</option>
+                                            <option value="Marathi">Marathi</option>
+                                            <option value="Tamil">Tamil</option>
+                                            <option value="Telugu">Telugu</option>
+                                            <option value="Urdu">Urdu</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="annualincome">Annual Income*:</label>
+                                        <select class="list-dt" class="form-control" name="annualincome">
+                                            <option value="CatA">Less than 1 Lac.</option>
+                                            <option value="CatB">1-2.5 Lac.</option>
+                                            <option value="CatC">2.5 - 5 Lac.</option>
+                                            <option value="CatD">5 - 8 Lac.</option>
+                                            <option value="CatE">8 - 10 Lac.</option>
+                                            <option value="CatF">Above 10 Lac.</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Religion">Religion*:</label>
+                                        <select class="list-dt" class="form-control" name="religion">
+                                            <option value="Hindu">Hindu</option>
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Christian">Christian</option>
+                                            <option value="Bauddha">Bauddha</option>
+                                            <option value="Parsi">Parsi</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="caste">Caste*:</label>
+                                        <input type="text" class="form-control" name="caste" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subcaste">Sub-caste:</label>
+                                        <input type="text" class="form-control" name="subcaste"/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="birthplace">Place of Birth*:</label>
+                                        <input type="text" class="form-control" name="birthplace" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="occupation">Occupation*:</label>
+                                        <select class="list-dt" class="form-control" name="occupation">
+                                            <option value="Business">Business</option>
+                                            <option value="Farming">Farming</option>
+                                            <option value="Service">Service</option>
+                                            <option value="Worker">Worker</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="occupationdetail">Occupation Details:</label>
+                                        <textarea type="text" class="form-control" name="occupationdetail" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Education">Education*:</label>
+                                        <select class="list-dt" class="form-control" name="Education" required>
+                                            <option value="Secondary">Secondary</option>
+                                            <option value="Higher Secondary">Higher Secondary</option>
+                                            <option value="Graduate">Graduate</option>
+                                            <option value="Worker">Post Graduate</option>
+                                            <option value="Post Graduate">PhD</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="educationdetails">Education Details:</label>
+                                        <textarea type="text" class="form-control" name="educationdetail" rows="2"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profileimage">Upload latest profile Image*:</label>
+                                        <input type="file" accept="image/*" name="profileimage" min="1" max="5" multiple/>
+                                    </div>
+                                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-primary setup-content" id="step-2">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Lifestyle</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="drink" class="control-label">Drinking*:</label>
+                                        <div>
+                                            <input type="radio" style="width:5%;"  name="drink" value="Yes"/>                                        
+                                            <label for="radio">Yes</label>
+                                            <input type="radio" style="width:5%;" name="drink" value="No" checked autofocus/>
+                                            <label for="radio">No</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="smoke" class="control-label">Smoking*:</label>
+                                        <div>
+                                            <input type="radio" style="width:5%;"  name="smoke" value="Yes"/>                                        
+                                            <label for="radio">Yes</label>
+                                            <input type="radio" style="width:5%;" name="smoke" value="No" checked/>
+                                            <label for="radio">No</label>
+                                        </div>
+                                    </div>
+                                    <!-- Ask for physical status & Diet -->
+                                    <div class="form-group">
+                                        <label for="eatinghabbits" class="control-label">Eating Habbits*:</label>
+                                        <input type="text" name="eatinghabbits" class="form-control" placeholder="Mention veg/non-veg category, Food items that you likes" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hobbies" class="control-label">Hobbies*:</label>
+                                    <input type="text" name="hobby" class="form-control" placeholder="Mention your hobbies/genuine interest separated by comma" required/> 
+                                    </div>
+                                    <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
+                                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-primary setup-content" id="step-3">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Horoscope</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="devak" class="control-label">Devak:</label>
+                                    <input type="text" name="devak" class="form-control" placeholder="Mention your Devak" autofocus/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mana" class="control-label">Mana:</label>
+                                    <input type="text" name="mana" class="form-control" placeholder="Mention your Mana" /> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Nadi" class="control-label">Nadi:</label>
+                                    <input type="text" name="nadi" class="form-control" placeholder="Mention your Nadi" /> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rassi" class="control-label">Rassi:</label>
+                                    <input type="text" name="rassi" class="form-control" placeholder="Mention your Rassi" /> 
+                                    </div>
+                                    <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
+                                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-primary setup-content" id="step-4">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Family Details</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="fathername" class="control-label">Father Name*:</label>
+                                        <input type="text" name="fathername" class="form-control" placeholder="Mention Your Father's Name" required autofocus/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fatheroccupation" class="control-label">Father Occupation*:</label>
+                                        <input type="text" name="fatheroccupation" class="form-control" placeholder="Mention your Father's Occupation" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mothername" class="control-label">Mother Name*:</label>
+                                        <input type="text" name="mothername" class="form-control" placeholder="Mention Your Mother's Name" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="brothercount" class="control-label">Number of Brothers*:</label>
+                                        <input type="number" name="brothercount" class="form-control" placeholder="Mention count of brothers you have" min="0" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sistercount" class="control-label">Number of Sisters*:</label>
+                                        <input type="number" name="sistercount" class="form-control" placeholder="Mention count of sisters you have" min="0" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="unclecount" class="control-label">Number of Uncle (Kaka):</label>
+                                        <input type="number" name="unclecount" class="form-control" placeholder="Mention count of uncle (kaka) you have" min="0"/>     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="atyacount" class="control-label">Number of Aunts (Atya):</label>
+                                        <input type="number" name="atyacount" class="form-control" placeholder="Mention count of aunts(atya) you have" min="0"/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mavasicount" class="control-label">Number of Aunts (Mavasi):</label>
+                                        <input type="number" name="mavasicount" class="form-control" placeholder="Mention count of aunts(mavasi) you have" min="0"/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="otherrelatives" class="control-label">Other Relatives:</label>
+                                        <input type="text" name="otherrelatives" class="form-control" placeholder="Mention Other relatives in your amily like grandparents, niece etc separated by ," /> 
+                                    </div>
+                                    <!-- <input class="btn btn-success pull-right" type="submit"> -->
+                                    <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
+                                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary setup-content" id="step-5">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Residential Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label for="addrln1" class="control-label">Address Line1*:</label>
+                                        <input type="text" name="addrln1" class="form-control" placeholder="Address Line 1" required autofocus/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="addrln2" class="control-label">Address Line2:</label>
+                                        <input type="text" name="addrln2" class="form-control" placeholder="Address Line 2"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="control-label">City/Taluka/Village*:</label>
+                                        <input type="text" name="city" class="form-control" placeholder="City/Taluka/Village" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="zipcode" class="control-label">Zip Code*:</label>
+                                        <input type="number" name="zipcode" class="form-control" placeholder="Zip Code E.x:123456" minlength="6" maxlength="6" min="0" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="district" class="control-label">District*:</label>
+                                        <input type="text" name="district" class="form-control" placeholder="District" required/> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state" class="control-label">State*:</label>
+                                        <input type="text" name="state" class="form-control" placeholder="State" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Country" class="control-label">Country*:</label>
+                                        <input type="text" name="country" class="form-control" placeholder="Country" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="currentlocation" class="control-label">Current Location*:</label>
+                                        <!-- <input type="text" name="currentLocation" placeholder="Current Address" /> -->
+                                        <textarea type="text" name="currentLocation" class="form-control" placeholder="Current Address" required></textarea>
+                                    </div>
+                                    <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
+                                    <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-primary setup-content" id="step-6">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Acknowledgement</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input type="checkbox" name="agree" required>
+                                        <label for="confirmation" class="control-label">The information given by me is correct and I'm solely responsible if anything found wrong.</label>
+                                    </div>
+                                    <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
+                                    <input class="btn btn-success pull-right" type="submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_scripts %}
+<script>
+$(document).ready(function () {
+
+var navListItems = $('div.setup-panel div a'),
+    allWells = $('.setup-content'),
+    allNextBtn = $('.nextBtn');
+    allPreviousBtn = $('.previousBtn');
+
+allWells.hide();
+
+navListItems.click(function (e) {
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+        $item = $(this);
+
+    if (!$item.hasClass('disabled')) {
+        navListItems.removeClass('btn-success').addClass('btn-default');
+        $item.addClass('btn-success');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
+    }
+});
+
+allNextBtn.click(function () {
+    var curStep = $(this).closest(".setup-content"),
+        curStepBtn = curStep.attr("id"),
+        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+        curInputs = curStep.find("input[type='text'],input[type='url']"),
+        isValid = true;
+
+    $(".form-group").removeClass("has-error");
+    for (var i = 0; i < curInputs.length; i++) {
+        if (!curInputs[i].validity.valid) {
+            isValid = false;
+            $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
+    }
+
+    if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+});
+
+allPreviousBtn.click(function () {
+    var curStep = $(this).closest(".setup-content"),
+    curStepBtn = curStep.attr("id"),
+    previousStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a"),
+    curInputs = curStep.find("input[type='text'],input[type='url']"),
+    isValid = true;
+    if (isValid) previousStepWizard.removeAttr('disabled').trigger('click');
+});
+
+$('div.setup-panel div a.btn-success').trigger('click');
+});
+</script>
+{% endblock extra_scripts %}
