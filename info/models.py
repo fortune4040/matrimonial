@@ -71,9 +71,41 @@ class Profile(models.Model):
     caste = models.CharField(max_length=20,null=True,blank=True)
     sub_caste = models.CharField(max_length=20,blank=True,null=True)
     birthplace = models.CharField(max_length=50,blank=True,null=True)
-    occupation = models.CharField(max_length=200,blank=True,null=True)
+    occupation = models.CharField(max_length=100,blank=True,null=True)
+    occupation_detail = models.CharField(max_length=200,blank=True,null=True)
     education = models.CharField(max_length=100,blank=True,null=True)
-    education_detail = models.CharField(max_length=100,blank=True,null=True)
+    education_detail = models.CharField(max_length=200,blank=True,null=True)
+
+    drink_habbit = models.CharField(max_length=20,blank=True,null=True,choices=types)
+    smoke_habbit = models.CharField(max_length=20,blank=True,null=True,choices=types)
+    eating_habbits = models.CharField(max_length=100,blank=True,null=True)
+    hobbies = models.CharField(max_length=100,blank=True,null=True)
+
+    devak = models.CharField(max_length=100,blank=True,null=True)
+    mana = models.CharField(max_length=100,blank=True,null=True)
+    nadi = models.CharField(max_length=100,blank=True,null=True)
+    rassi = models.CharField(max_length=100,blank=True,null=True)
+
+    father_name = models.CharField(max_length=100,blank=True,null=True)
+    father_occupation = models.CharField(max_length=200,blank=True,null=True)
+    mother_name = models.CharField(max_length=100,blank=True,null=True)
+    brother_count = models.PositiveSmallIntegerField(max_length=3, blank=True)
+    sister_count = models.PositiveSmallIntegerField(max_length=3, blank=True)
+    uncle_count = models.PositiveSmallIntegerField(max_length=3, blank=True)
+    atya_count = models.PositiveSmallIntegerField(max_length=3, blank=True)
+    mavasi_count = models.PositiveSmallIntegerField(max_length=3, blank=True)
+    other_relatives = models.CharField(max_length=100,blank=True,null=True)
+
+    address_line1 = models.CharField(max_length=200)
+    address_line2 = models.CharField(max_length=100,blank=True,null=True)
+    city = models.CharField(max_length=100)
+    zipcode = models.PositiveIntegerField(max_length=6)
+    district = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    current_location = models.CharField(max_length=200)
+
+    agree_tnc = models.BooleanField()
 
     @property
     def images(self):
