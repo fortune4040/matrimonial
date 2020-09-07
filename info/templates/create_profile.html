@@ -51,11 +51,11 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label for="navarasname">Navaras Name*:</label>
-                                        <input type="text" name="navarasname" class="form-control" placeholder="Navaras Name" autofocus required/> 
+                                        <input type="text" name="navaras" class="form-control" placeholder="Navaras Name" autofocus required/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="maritalStatus">Marital Status*:</label>
-                                        <select class="list-dt" name="maritalStatus" class="form-control">
+                                        <select class="list-dt" name="maritial_status" class="form-control">
                                             <option value="single">Single</option>
                                             <option value="divorced">Divorced</option>
                                         </select>
@@ -84,21 +84,21 @@
                                     <div class="form-group">
                                     <label for="gender">Body Type*:</label>
                                         <div>
-                                            <input type="radio" style="width:5%;" name="bodytype" value="fare" checked>                                        
+                                            <input type="radio" style="width:5%;" name="body_type" value="fare" checked>                                        
                                             <label for="radio">Fare</label>
-                                            <input type="radio" style="width:5%;" name="bodytype" value="brown">
+                                            <input type="radio" style="width:5%;" name="body_type" value="brown">
                                             <label for="radio">Brown</label>
-                                            <input type="radio" style="width:5%;" name="bodytype" value="black">
+                                            <input type="radio" style="width:5%;" name="body_type" value="black">
                                             <label for="radio">Black</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="dob">Date of Birth*:</label>
-                                        <input type="date" name="dob" class="form-control" required/>
+                                        <input type="date" name="birthdate" class="form-control" required/>
                                     </div>
                                     <div class="form-group">
                                         <label for="bloodgp">Blood Group*:</label>
-                                        <select class="list-dt" class="form-control" name="bloodgp">
+                                        <select class="list-dt" class="form-control" name="blood_group">
                                             <option value="A+">A +ve</option>
                                             <option value="A-">A -ve</option>
                                             <option value="B+">B +ve</option>
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="mothertongue">Mother Tongue*:</label>
-                                        <select class="list-dt" class="form-control" name="Mother Tongue" >
+                                        <select class="list-dt" class="form-control" name="mother_tongue" >
                                             <option value="Bengali">Bengali</option>
                                             <option value="English">English</option>
                                             <option value="Gujarati">Gujarati</option>
@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="annualincome">Annual Income*:</label>
-                                        <select class="list-dt" class="form-control" name="annualincome">
+                                        <select class="list-dt" class="form-control" name="annual_income">
                                             <option value="CatA">Less than 1 Lac.</option>
                                             <option value="CatB">1-2.5 Lac.</option>
                                             <option value="CatC">2.5 - 5 Lac.</option>
@@ -154,7 +154,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="subcaste">Sub-caste:</label>
-                                        <input type="text" class="form-control" name="subcaste"/> 
+                                        <input type="text" class="form-control" name="sub_caste"/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="birthplace">Place of Birth*:</label>
@@ -172,11 +172,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="occupationdetail">Occupation Details:</label>
-                                        <textarea type="text" class="form-control" name="occupationdetail" rows="2"></textarea>
+                                        <textarea type="text" class="form-control" name="occupation_detail" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="Education">Education*:</label>
-                                        <select class="list-dt" class="form-control" name="Education" required>
+                                        <select class="list-dt" class="form-control" name="education" required>
                                             <option value="Secondary">Secondary</option>
                                             <option value="Higher Secondary">Higher Secondary</option>
                                             <option value="Graduate">Graduate</option>
@@ -187,7 +187,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="educationdetails">Education Details:</label>
-                                        <textarea type="text" class="form-control" name="educationdetail" rows="2"></textarea>
+                                        <textarea type="text" class="form-control" name="education_detail" rows="2"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="profileimage">Upload latest profile Image*:</label>
@@ -205,29 +205,29 @@
                                     <div class="form-group">
                                         <label for="drink" class="control-label">Drinking*:</label>
                                         <div>
-                                            <input type="radio" style="width:5%;"  name="drink" value="Yes"/>                                        
+                                            <input type="radio" style="width:5%;"  name="drink_habbit" value="Yes"/>                                        
                                             <label for="radio">Yes</label>
-                                            <input type="radio" style="width:5%;" name="drink" value="No" checked autofocus/>
+                                            <input type="radio" style="width:5%;" name="drink_habbit" value="No" checked autofocus/>
                                             <label for="radio">No</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="smoke" class="control-label">Smoking*:</label>
                                         <div>
-                                            <input type="radio" style="width:5%;"  name="smoke" value="Yes"/>                                        
+                                            <input type="radio" style="width:5%;"  name="smoke_habbit" value="Yes"/>                                        
                                             <label for="radio">Yes</label>
-                                            <input type="radio" style="width:5%;" name="smoke" value="No" checked/>
+                                            <input type="radio" style="width:5%;" name="smoke_habbit" value="No" checked/>
                                             <label for="radio">No</label>
                                         </div>
                                     </div>
                                     <!-- Ask for physical status & Diet -->
                                     <div class="form-group">
                                         <label for="eatinghabbits" class="control-label">Eating Habbits*:</label>
-                                        <input type="text" name="eatinghabbits" class="form-control" placeholder="Mention veg/non-veg category, Food items that you likes" required/>
+                                        <input type="text" name="eating_habbits" class="form-control" placeholder="Mention veg/non-veg category, Food items that you likes" required/>
                                     </div>
                                     <div class="form-group">
                                         <label for="hobbies" class="control-label">Hobbies*:</label>
-                                    <input type="text" name="hobby" class="form-control" placeholder="Mention your hobbies/genuine interest separated by comma" required/> 
+                                    <input type="text" name="hobbies" class="form-control" placeholder="Mention your hobbies/genuine interest separated by comma" required/> 
                                     </div>
                                     <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
                                     <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
@@ -267,39 +267,39 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label for="fathername" class="control-label">Father Name*:</label>
-                                        <input type="text" name="fathername" class="form-control" placeholder="Mention Your Father's Name" required autofocus/> 
+                                        <input type="text" name="father_name" class="form-control" placeholder="Mention Your Father's Name" required autofocus/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="fatheroccupation" class="control-label">Father Occupation*:</label>
-                                        <input type="text" name="fatheroccupation" class="form-control" placeholder="Mention your Father's Occupation" required/>
+                                        <input type="text" name="father_occupation" class="form-control" placeholder="Mention your Father's Occupation" required/>
                                     </div>
                                     <div class="form-group">
                                         <label for="mothername" class="control-label">Mother Name*:</label>
-                                        <input type="text" name="mothername" class="form-control" placeholder="Mention Your Mother's Name" required/> 
+                                        <input type="text" name="mother_name" class="form-control" placeholder="Mention Your Mother's Name" required/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="brothercount" class="control-label">Number of Brothers*:</label>
-                                        <input type="number" name="brothercount" class="form-control" placeholder="Mention count of brothers you have" min="0" required/> 
+                                        <input type="number" name="brother_count" class="form-control" placeholder="Mention count of brothers you have" min="0" required/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="sistercount" class="control-label">Number of Sisters*:</label>
-                                        <input type="number" name="sistercount" class="form-control" placeholder="Mention count of sisters you have" min="0" required/> 
+                                        <input type="number" name="sister_count" class="form-control" placeholder="Mention count of sisters you have" min="0" required/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="unclecount" class="control-label">Number of Uncle (Kaka):</label>
-                                        <input type="number" name="unclecount" class="form-control" placeholder="Mention count of uncle (kaka) you have" min="0"/>     
+                                        <input type="number" name="uncle_count" class="form-control" placeholder="Mention count of uncle (kaka) you have" min="0"/>     
                                     </div>
                                     <div class="form-group">
                                         <label for="atyacount" class="control-label">Number of Aunts (Atya):</label>
-                                        <input type="number" name="atyacount" class="form-control" placeholder="Mention count of aunts(atya) you have" min="0"/> 
+                                        <input type="number" name="atya_count" class="form-control" placeholder="Mention count of aunts(atya) you have" min="0"/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="mavasicount" class="control-label">Number of Aunts (Mavasi):</label>
-                                        <input type="number" name="mavasicount" class="form-control" placeholder="Mention count of aunts(mavasi) you have" min="0"/> 
+                                        <input type="number" name="mavasi_count" class="form-control" placeholder="Mention count of aunts(mavasi) you have" min="0"/> 
                                     </div>
                                     <div class="form-group">
                                         <label for="otherrelatives" class="control-label">Other Relatives:</label>
-                                        <input type="text" name="otherrelatives" class="form-control" placeholder="Mention Other relatives in your amily like grandparents, niece etc separated by ," /> 
+                                        <input type="text" name="other_relatives" class="form-control" placeholder="Mention Other relatives in your amily like grandparents, niece etc separated by ," /> 
                                     </div>
                                     <!-- <input class="btn btn-success pull-right" type="submit"> -->
                                     <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
@@ -313,12 +313,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label for="addrln1" class="control-label">Address Line1*:</label>
-                                        <input type="text" name="addrln1" class="form-control" placeholder="Address Line 1" required autofocus/>
+                                        <label for="address_line1" class="control-label">Address Line1*:</label>
+                                        <input type="text" name="address_line1" class="form-control" placeholder="Address Line 1" required autofocus/>
                                     </div>
                                     <div class="form-group">
-                                        <label for="addrln2" class="control-label">Address Line2:</label>
-                                        <input type="text" name="addrln2" class="form-control" placeholder="Address Line 2"/>
+                                        <label for="address_line2" class="control-label">Address Line2:</label>
+                                        <input type="text" name="address_line2" class="form-control" placeholder="Address Line 2"/>
                                     </div>
                                     <div class="form-group">
                                         <label for="city" class="control-label">City/Taluka/Village*:</label>
@@ -343,7 +343,7 @@
                                     <div class="form-group">
                                         <label for="currentlocation" class="control-label">Current Location*:</label>
                                         <!-- <input type="text" name="currentLocation" placeholder="Current Address" /> -->
-                                        <textarea type="text" name="currentLocation" class="form-control" placeholder="Current Address" required></textarea>
+                                        <textarea type="text" name="current_location" class="form-control" placeholder="Current Address" required></textarea>
                                     </div>
                                     <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
                                     <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
@@ -356,7 +356,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input type="checkbox" name="agree" required>
+                                        <input type="checkbox" name="agree_tnc" required>
                                         <label for="confirmation" class="control-label">The information given by me is correct and I'm solely responsible if anything found wrong.</label>
                                     </div>
                                     <button class="btn btn-secondary previousBtn pull-left" type="button">Previous</button>
