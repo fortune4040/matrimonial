@@ -27,7 +27,7 @@
 
             {% if user.is_authenticated %}
             <li class="nav-item">
-            <a class="nav-link" href="{% url 'info:logout' %}">Logout</a>
+            <a class="nav-link" href="{% url 'info:logout' %}?next=/">Logout</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'info:change_password' %}">Change Password</a>

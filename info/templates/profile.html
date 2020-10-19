@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{{request.user}}
-<form method="post">
+{% load rest_framework %}
+
+<html><body>
+
+<h1>Profile - {{ profile.name }}</h1>
+
+<form action="" method="POST">
     {% csrf_token %}
-    {{form}}
-<button type="submit" class="btn btn-success float-right">Add Poll</button>
+    {% render_form serializer %}
+    <input type="text" name="abd">
+    <input type="submit" value="Save">
 </form>
 
-</body>
-</html>
+</body></html>

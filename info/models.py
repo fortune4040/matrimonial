@@ -4,7 +4,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.core.validators import RegexValidator
-
+from django.shortcuts import redirect
 
 gender_choices = (
     ('male', 'Male'),
@@ -51,6 +51,10 @@ class User(AbstractUser):
     full_name = models.CharField(max_length=255,blank=True,null=True)
     relation = models.CharField(max_length=10,blank=True,null=True,choices=relationship_choices)
     gender = models.CharField(max_length=6,blank=True,null=True,choices=gender_choices)
+    profile_active = models.BooleanField(default=False)
+
+    def profile_active_url(self):
+        return redirect('info:home')
 
 
 class Profile(models.Model):
@@ -75,6 +79,7 @@ class Profile(models.Model):
     education = models.CharField(max_length=100,blank=True,null=True)
     education_detail = models.CharField(max_length=100,blank=True,null=True)
 
+
     @property
     def images(self):
         return self.img.all()
@@ -85,15 +90,16 @@ class Profile(models.Model):
 
 class ProfileImage(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE,related_name="img")
-    image = models.CharField(max_length=10,blank=True,null=True)
+    image = models.ImageField(blank=True,null=True)
 
 
-# @receiver(post_save,sender=settings.AUTH_USER_MODEL)
-# def userprofile_receiver(sender, instance, created, *args, **kwargs):
-#     if created:
-#         Profile.objects.create(user=instance)
-#     else:
-#         instance.profile.save()
+@receiver(post_save,sender=Profile)
+def userprofile_receiver(sender, instance, created, *args, **kwargs):
+    if created:
+        u = User.objects.get(pk=instance.user.id)
+        u.profile_active = True
+        u.save()
+
 
 
 

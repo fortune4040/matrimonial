@@ -20,12 +20,16 @@ class ProfileSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['education','occupation','images']
+        fields = '__all__'
+        extra_fields = ['images']
 
     def create(self, validated_data):
-        print(validated_data)
+        # print(validated_data)
         images = validated_data.pop('images')
+        # print(images)
         profile = Profile.objects.create(**validated_data)
         for image in images:
             ProfileImage.objects.create(**image, profile=profile)
         return profile
+
+
